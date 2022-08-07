@@ -1,2 +1,2 @@
 # JaP
- Obligatorio JaP
+ Obligatorio individual JaP
