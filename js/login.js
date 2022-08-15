@@ -1,11 +1,17 @@
-function singIn(){
+function singIn() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    let message = "";
 
-    if(email !="" && password !=""){
-        alert("Los campos estan completos");
+    if (email == "") {
+        message = "Email cannot be empty";
     }
-    else{
-        alert("Los campos no pueden estar vacios");
+    else if (password == "") {
+        message = "Password cannot be empty";
     }
+    else {
+        window.location.href = "principal.html";
+
+    }
+    document.querySelector("#warning").innerHTML = message;
 }
