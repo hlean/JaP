@@ -1,4 +1,4 @@
-let currentProductsArray = [];
+let ProductsArrayAndCatName = [];
 
 function setCatID(id) {
     localStorage.setItem("catID", id);
@@ -6,13 +6,16 @@ function setCatID(id) {
 }
 
 function showProductsList() {
+    let currentProductsArray = ProductsArrayAndCatName.products;
+
+    title = `<h1>${ProductsArrayAndCatName.catName}</h1>
+             <p>Aqui podras ver todos los productos de la categoria <strong>${ProductsArrayAndCatName.catName.toLowerCase()}</strong></p>`
 
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
         let product = currentProductsArray[i];
-
         htmlContentToAppend += `
-        <div onclick="setCatID(${product.id})" class="list-group-item list-group-item-action cursor-active">
+        <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
@@ -28,21 +31,23 @@ function showProductsList() {
                 </div>
             </div>
             `
-
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
+    document.getElementById("product-title").innerHTML = title;
 }
-const PRODUCTS_URL_AUTO = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL_AUTO).then(function (resultObj) {
+
+    let id = localStorage.getItem("catID");
+    let url = PRODUCTS_URL + id + EXT_TYPE;
+
+    getJSONData(url).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            currentProductsArray = resultObj.data.products
+            ProductsArrayAndCatName = resultObj.data;
             showProductsList()
         }
     });
-
 });
