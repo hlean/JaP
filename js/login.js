@@ -1,4 +1,10 @@
-function singIn() {
+document.querySelector("#form").addEventListener('submit', singIn);
+
+
+function singIn(viajeDatos) {
+
+    viajeDatos.preventDefault();
+
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     let message = "";
@@ -10,6 +16,7 @@ function singIn() {
         message = "Password cannot be empty";
     }
     else {
+        this.submit();
         window.location.href = "principal.html";
 
     }
