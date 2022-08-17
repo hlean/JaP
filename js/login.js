@@ -1,7 +1,4 @@
-document.querySelector("#form").addEventListener('submit', singIn);
-
-
-function singIn(viajeDatos) {
+document.querySelector("#form").addEventListener('submit', function(viajeDatos){
 
     viajeDatos.preventDefault();
 
@@ -16,9 +13,9 @@ function singIn(viajeDatos) {
         message = "Password cannot be empty";
     }
     else {
-        this.submit();
         window.location.href = "principal.html";
-
+        console.log(email)
+        console.log(password)
     }
     document.querySelector("#warning").innerHTML = message;
-}
+})
