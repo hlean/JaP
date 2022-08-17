@@ -21,15 +21,17 @@ function showProductsList() {
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
                     </div>
                     <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h3 class="mb-1">${product.name}</h3>
-                            <small class="text-muted">${product.currency} ${product.cost}</small>
-                        </div>
-                        <p class="mb-1">${product.description}</p><br><br>
-                        <p class="mb-1">Cantidad vendidos: ${product.soldCount}</p>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h3 class="mb-1">${product.name}</h3>
+                    </div>
+                        <p>${product.description}</p>
+                    <div class="d-flex justify-content-between mt-5">
+                        <p>Cantidad vendidos: ${product.soldCount}</p>
+                        <p>${product.currency} ${product.cost}</p>
                     </div>
                 </div>
             </div>
+        </div>
             `
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
