@@ -14,8 +14,7 @@ document.querySelector("#form").addEventListener('submit', function(viajeDatos){
     }
     else {
         window.location.href = "principal.html";
-        console.log(email)
-        console.log(password)
+        localStorage.setItem("userEmail", email);
     }
     document.querySelector("#warning").innerHTML = message;
 })
