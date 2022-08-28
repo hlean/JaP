@@ -83,7 +83,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
     showCategoriesList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
+//Función que se ejecuta una vees que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data
             showCategoriesList()
-            //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
+            sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
 
