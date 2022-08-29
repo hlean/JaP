@@ -92,9 +92,25 @@ function sortAndShowProducts(sortCriteria, productsArray){
     showProductsList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+function searchProducts(searchArray){
+    let item = document.getElementById("item_search").value
+
+    if(searchArray != undefined){
+        currentProductsArray = searchArray.products;
+        for(let i=0; i<=currentProductsArray.length; i++){
+            let element = currentProductsArray[i];
+
+        if(element.name.includes(item) || element.description.includes(item) ){
+            showProductsList(element)
+            }
+        }
+    }
+    
+}
+
+
+/*Función que se ejecuta una vez que se haya lanzado el evento de
+que el documento se encuentra cargado, es decir, se encuentran todos los elementos HTML presentes.*/
 document.addEventListener("DOMContentLoaded", function (e) {
 
     let id = localStorage.getItem("catID");
@@ -105,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             ProductsArrayAndCatName = resultObj.data;
             showProductsList()
             sortAndShowProducts(ORDER_ASC_BY_PRICE, resultObj.data.products);
-
         }
     });
 
@@ -119,6 +134,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("sortByPrice").addEventListener("click", function(){
         sortAndShowProducts(ORDER_BY_PROD_REL);
+    });
+
+    document.getElementById("btn_search").addEventListener("click", function(){
+        searchProducts(ProductsArrayAndCatName);
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
