@@ -92,7 +92,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
     showProductsList();
 }
 
-function searchProducts(searchArray){
+/*function searchProducts(searchArray){
     let item = document.getElementById("item_search").value
 
     if(searchArray != undefined){
@@ -104,9 +104,8 @@ function searchProducts(searchArray){
             showProductsList(element)
             }
         }
-    }
-    
-}
+    }  
+}*/
 
 
 /*Función que se ejecuta una vez que se haya lanzado el evento de
@@ -136,9 +135,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
         sortAndShowProducts(ORDER_BY_PROD_REL);
     });
 
-    document.getElementById("btn_search").addEventListener("click", function(){
+    /*document.getElementById("btn_search").addEventListener("click", function(){
         searchProducts(ProductsArrayAndCatName);
-    });
+    });*/
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterPriceMin").value = "";
