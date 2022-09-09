@@ -36,13 +36,38 @@
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+  <main class="container" >
+    <div class="container mt-5" id="product-info-container" ></div>
+
+    <div class="container pt-3 pb-5 row" id="products-img"></div>
+    
+    <div class="row pt-3 pb-5">
+      <h3 class="text-title text-center mb-3">Coments</h3>
+      <div class="list-group" id="coments-list-container"></div>
     </div>
+    
+    <div class="container">
+      <form class="row text-center justify-content-center">
+        <label for="textArea">Insert your opinion:</label>
+        <textarea class="mb-3" id="textArea"></textarea>
+        <label for="score">Select a score:</label>
+        <select id="score" class="mb-3">
+          <option disabled selected>Score</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <input type="submit" value="Submit" id="addComent" class=" col-auto btn-primary">
+      </form>
+    </div>
+
+
   </main>
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
