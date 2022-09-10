@@ -38,18 +38,20 @@
   </nav>
   <main class="container" >
     <div class="container mt-5" id="product-info-container" ></div>
-
     <div class="container pt-3 pb-5 row" id="products-img"></div>
     
-    <div class="row pt-3 pb-5">
+    <div class="row pt-3">
       <h3 class="text-title text-center mb-3">Coments</h3>
       <div class="list-group" id="coments-list-container"></div>
     </div>
-    
+    <div class="row pb-5">
+      <div class="list-group" id="my-coments-container"></div>
+    </div>
+
     <div class="container">
-      <form class="row text-center justify-content-center">
-        <label for="textArea">Insert your opinion:</label>
-        <textarea class="mb-3" id="textArea"></textarea>
+      <div class="row text-center justify-content-center">
+        <label for="txtArea">Insert your opinion:</label>
+        <textarea class="mb-3" id="txtArea"></textarea>
         <label for="score">Select a score:</label>
         <select id="score" class="mb-3">
           <option disabled selected>Score</option>
@@ -60,8 +62,8 @@
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <input type="submit" value="Submit" id="addComent" class=" col-auto btn-primary">
-      </form>
+        <input type="submit" value="Submit" id="btn_addComent" class=" col-auto btn-primary">
+      </div>
     </div>
 
 
