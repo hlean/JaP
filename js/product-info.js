@@ -2,7 +2,6 @@ let ProductsInfoArray = [];
 let ProductsComentsArray = [];
 
 /*#################### FUNCIONES DE USO GENERAL #####################*/
-
 function createDateTime(){
     var currentdate = new Date(); 
     var datetime =currentdate.getFullYear() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getDate() + " "  
@@ -10,7 +9,7 @@ function createDateTime(){
     return datetime;
 }
 function creatStars(coments){
-    if(coments.score == 5){
+    if(coments == 5){
         htmlContentToAppend = `                                
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
@@ -18,7 +17,7 @@ function creatStars(coments){
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>`
     }
-    if(coments.score == 4){
+    if(coments == 4){
         htmlContentToAppend = `                                
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
@@ -26,7 +25,7 @@ function creatStars(coments){
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star "></span>`
     }
-    if(coments.score == 3){
+    if(coments == 3){
         htmlContentToAppend = `                                
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
@@ -34,7 +33,7 @@ function creatStars(coments){
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>`
     }
-    if(coments.score == 2){
+    if(coments == 2){
         htmlContentToAppend = `                                
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
@@ -42,7 +41,7 @@ function creatStars(coments){
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>`
     }
-    if(coments.score == 1){
+    if(coments == 1){
         htmlContentToAppend = `                                
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star"></span>
@@ -50,7 +49,7 @@ function creatStars(coments){
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>`
     }
-    if(coments.score == 0){
+    if(coments == 0){
         htmlContentToAppend = `                                
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
@@ -115,7 +114,7 @@ function showProductsComents(){
                                 <p class="d-inline">${coments.description}</p>
                             </div>
                             <div>
-                                ${creatStars(coments)}
+                                ${creatStars(coments.score)}
                             </div>
                         </div>
                         <div class="d-flex w-100 justify-content-end">
@@ -136,7 +135,6 @@ submit.addEventListener("click", function(){
     let txtArea = document.getElementById("txtArea").value;
     let score = document.getElementById("score").value;
     let email = localStorage.getItem("userEmail");
-    if(score == 5){
         htmlContentToAppend = `
         <div class="list-group-item">
             <div class="row">
@@ -147,11 +145,7 @@ submit.addEventListener("click", function(){
                             <p class="d-inline">${txtArea}</p>
                         </div>
                         <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
+                        ${creatStars(score)}
                         </div>
                     </div>
                     <div class="d-flex w-100 justify-content-end">
@@ -160,132 +154,7 @@ submit.addEventListener("click", function(){
                 </div>
             </div>
         </div>
-    `}
-    if(score == 4){
-        htmlContentToAppend = `
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col p-3">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h5 class="mb-1 d-inline">${email}: </h5> 
-                            <p class="d-inline">${txtArea}</p>
-                        </div>
-                        <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="d-flex w-100 justify-content-end">
-                        <small class="text-muted">${createDateTime()}</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `}
-    if(score == 3){
-        htmlContentToAppend = `
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col p-3">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h5 class="mb-1 d-inline">${email}: </h5> 
-                            <p class="d-inline">${txtArea}</p>
-                        </div>
-                        <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="d-flex w-100 justify-content-end">
-                        <small class="text-muted">${createDateTime()}</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `}
-    if(score == 2){
-        htmlContentToAppend = `
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col p-3">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h5 class="mb-1 d-inline">${email}: </h5> 
-                            <p class="d-inline">${txtArea}</p>
-                        </div>
-                        <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="d-flex w-100 justify-content-end">
-                        <small class="text-muted">${createDateTime()}</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `}
-    if(score == 1){
-        htmlContentToAppend = `
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col p-3">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h5 class="mb-1 d-inline">${email}: </h5> 
-                            <p class="d-inline">${txtArea}</p>
-                        </div>
-                        <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="d-flex w-100 justify-content-end">
-                        <small class="text-muted">${createDateTime()}</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `}
-    if(score == 0){
-        htmlContentToAppend = `
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col p-3">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <h5 class="mb-1 d-inline">${email}: </h5> 
-                            <p class="d-inline">${txtArea}</p>
-                        </div>
-                        <div>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="d-flex w-100 justify-content-end">
-                        <small class="text-muted">${createDateTime()}</small>
-                    </div>
-                </div>
-            </div>
-        </div>`
-    }
+    `
     document.getElementById("my-coments-container").innerHTML += htmlContentToAppend;
 });
 
