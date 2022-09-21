@@ -135,7 +135,8 @@ submit.addEventListener("click", function(){
     let txtArea = document.getElementById("txtArea").value;
     let score = document.getElementById("score").value;
     let email = localStorage.getItem("userEmail");
-        htmlContentToAppend = `
+    if(score != "#" && txtArea){    
+    htmlContentToAppend = `
         <div class="list-group-item">
             <div class="row">
                 <div class="col p-3">
@@ -156,6 +157,10 @@ submit.addEventListener("click", function(){
         </div>
     `
     document.getElementById("my-coments-container").innerHTML += htmlContentToAppend;
+    }
+    else{
+        document.querySelector("#warning").innerHTML = "Opinion and score cannot be empty";
+    }
 });
 
 

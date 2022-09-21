@@ -47,24 +47,27 @@
     <div class="row pb-5">
       <div class="list-group" id="my-coments-container"></div>
     </div>
+    <div class="row pb-5">
+      <div class="list-group" id="products-related-container"></div>
+    </div>
 
     <div class="container">
       <div class="row text-center justify-content-center">
         
-        <label for="txtArea">Insert your opinion:</label>
-        <textarea class="mb-3" id="txtArea"></textarea>
+        <label required for="txtArea">Insert your opinion:</label>
+        <textarea class="mb-3" id="txtArea" required></textarea>
         
         <label for="score">Select a score:</label>
-        <select id="score" class="mb-3">
-          <option disabled selected>Score</option>
+        <select id="score" class="mb-3" required>
+          <option value="#" disabled selected>Score</option>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-        
         </select>
+        <p id="warning">&nbsp</p>
         
         <input type="submit" value="Submit" id="btn_addComent" class=" col-auto btn-primary">
       </div>
