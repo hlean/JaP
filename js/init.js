@@ -40,6 +40,12 @@ let getJSONData = function(url){
     });
 }
 
+const btn_cerrarSesion = document.getElementById("cerrarSesion");
+btn_cerrarSesion.addEventListener("click", function(){
+  window.localStorage.clear();
+})
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
   let email = localStorage.getItem("userEmail");
 

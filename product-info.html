@@ -30,8 +30,15 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Sell</a>
           </li>
-          <li class="nav-item" id="showEmail">
-          </li>
+          <div class="dropdown">
+            <button class="btn" type="button" id="showEmail" data-bs-toggle="dropdown" aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="index.html" id="cerrarSesion">Cerrar sesion</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -39,7 +46,8 @@
   <main class="container" >
     <div class="container mt-5" id="product-info-container" ></div>
     <div class="container pt-3 pb-5 row" id="products-img"></div>
-    
+    <hr>
+
     <div class="row pt-3">
       <h3 class="text-title text-center mb-3">Coments</h3>
       <div class="list-group" id="coments-list-container"></div>
@@ -47,9 +55,7 @@
     <div class="row pb-5">
       <div class="list-group" id="my-coments-container"></div>
     </div>
-    <div class="row pb-5">
-      <div class="list-group" id="products-related-container"></div>
-    </div>
+
 
     <div class="container">
       <div class="row text-center justify-content-center">
@@ -72,8 +78,11 @@
         <input type="submit" value="Submit" id="btn_addComent" class=" col-auto btn-primary">
       </div>
     </div>
-
-
+      <hr>
+    <div class="row pb-5">        
+      <h3 class="text-title text-center mt-3 mb-5">Related products</h3>
+      <div class="list-group" id="products-related-container"></div>
+    </div>
   </main>
 
 

@@ -64,6 +64,8 @@ function creatStars(coments){
 
 function showProductsInfoList() {
     let img = "";
+    let products = "";
+
     htmlContentToAppend = 
     `<h1 class="text-title text-center">${ProductsInfoArray.name}</h1>
         <div class="list-group-item">
@@ -95,6 +97,17 @@ function showProductsInfoList() {
                     </div>
                 </div>`
         document.getElementById("products-img").innerHTML = img;
+    }
+    
+    for (let j=0; j<ProductsInfoArray.relatedProducts.length; i++){
+        let item = ProductsInfoArray.relatedProducts[j]
+        products +=`<div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="${item.image}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.name}</h5>
+                        </div>
+                    </div>`           
+        document.getElementById("products-related-container").innerHTML = products;
     }
 
 }
