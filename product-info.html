@@ -44,8 +44,25 @@
     </div>
   </nav>
   <main class="container" >
-    <div class="container mt-5" id="product-info-container" ></div>
-    <div class="container pt-3 pb-5 row" id="products-img"></div>
+    <div class="d-flex mb-5">
+    <div class="container mt-5" id="product-info-container"></div>
+
+      <div id="carouselExampleControls" class="carousel slide col-6  mt-5 " data-bs-ride="carousel">
+        <div class="carousel-inner" id="products-img">
+          <div class="carousel-item active">
+            <img src="https://dummyimage.com/750x300" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
     <hr>
 
     <div class="row pt-3">
@@ -81,7 +98,7 @@
       <hr>
     <div class="row pb-5">        
       <h3 class="text-title text-center mt-3 mb-5">Related products</h3>
-      <div class="list-group" id="products-related-container"></div>
+      <div class="list-group align-items-center" id="products-related-container"></div>
     </div>
   </main>
 

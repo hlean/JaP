@@ -68,7 +68,7 @@ function showProductsInfoList() {
 
     htmlContentToAppend = 
     `<h1 class="text-title text-center">${ProductsInfoArray.name}</h1>
-        <div class="list-group-item">
+        <div >
             <div class="col">
                 <div class="w-100">
                     <h3 class="mb-1">Price</h3>
@@ -91,12 +91,11 @@ function showProductsInfoList() {
     document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
     
     for (let i = 0; i < ProductsInfoArray.images.length; i++) {
-        img += `<div class="col-lg-3 col-md-4 col-sm-12 mb-2">
-                    <div>
-                        <img src="${ProductsInfoArray.images[i]}" class="card-img-top" alt="...">
-                    </div>
-                </div>`
-        document.getElementById("products-img").innerHTML = img;
+        img = `
+    <div class="carousel-item">
+      <img src="${ProductsInfoArray.images[i]}" class="d-block w-100" alt="...">
+    </div>`
+        document.getElementById("products-img").innerHTML += img;
     }
     
     for (let j=0; j<ProductsInfoArray.relatedProducts.length; i++){
@@ -199,9 +198,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
-
-
-
 
 
 
