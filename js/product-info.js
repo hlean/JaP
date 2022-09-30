@@ -152,6 +152,10 @@ submit.addEventListener("click", function(){
     let txtArea = document.getElementById("txtArea").value;
     let score = document.getElementById("score").value;
     let email = localStorage.getItem("userEmail");
+    if(email == null){
+        window.location = "index.html"
+    }
+
     if(score != "#" && txtArea){    
     htmlContentToAppend = `
         <div class="list-group-item">

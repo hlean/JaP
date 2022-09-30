@@ -101,7 +101,11 @@ function sortAndShowProducts(sortCriteria, productsArray){
 /*Función que se ejecuta una vez que se haya lanzado el evento de
 que el documento se encuentra cargado, es decir, se encuentran todos los elementos HTML presentes.*/
 document.addEventListener("DOMContentLoaded", function (e) {
-
+    let email = localStorage.getItem("userEmail");
+    if(email == null){
+        window.location = "index.html"
+    }
+    
     let id = localStorage.getItem("catID");
     let url = PRODUCTS_URL + id + EXT_TYPE;
 
