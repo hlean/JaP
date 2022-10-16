@@ -43,10 +43,66 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="container d-flex">
+
+      <div class="col-8">
+        <div class="pt-5">
+          <h4 class="text-title"><b>Carrito de compras</b></h4>
+        </div>
+        <table class="table table-sm text-center justify-content-between mt-4">
+          <thead>
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Name</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Cant</th>
+              <th scope="col">Sub total</th>
+            </tr>
+          </thead>
+          <tbody class="text-center ">
+            <tr id="items-body">
+              <td><img src="" class="img-fluid img" style="width: 15rem;"></td>
+              <td></td>
+              <td></td>
+              <td>
+                <input class="text-center w-25" type="number" id="cantCarrito" value="1"/>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+          <!-- <tbody class="text-center ">
+            <tr id="items-bodyStorage">
+              <td><img src="" class="img-fluid img" style="width: 15rem;"></td>
+              <td></td>
+              <td></td>
+              <td>
+                <input class="text-center w-25" type="number" id="cantCarrito" value="1"/>
+              </td>
+              <td></td>
+            </tr>
+          </tbody> -->
+        </table>
       </div>
+
+      <div class="col-4 ms-5">
+        <div class="text-center pt-5">
+          <h4 class="text-title"><b>Informacion de envio</b></h4>
+        </div>
+        <article class="mt-4">
+          <h5>Tipo de envio</h5>
+          <p><input type="radio"> Premium 2 a 5 dias (15%)</p>
+          <p><input type="radio"> Express 5 a 8 dias (7%)</p>
+          <p><input type="radio"> Standar 12 a 15 dias (5%)</p>
+        </article>
+        <article class="mt-4">
+          <h5>Direccion de envio</h5>
+          <input type="text" placeholder="Calle" class="w-100 mb-2 p-1">
+          <input type="text" placeholder="Numero" class="w-100 mb-2 p-1">
+          <input type="text" placeholder="Esquina" class="w-100 p-1">
+        </article>
+      </div>
+
+      
     </div>
   </main>
   <footer class="text-muted">

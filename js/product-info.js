@@ -144,9 +144,6 @@ function showProductsComents(){
         document.getElementById("coments-list-container").innerHTML = htmlContentToAppend;
     }
 }
-
-
-
 const submit = document.getElementById("btn_addComent");
 submit.addEventListener("click", function(){
     let txtArea = document.getElementById("txtArea").value;
@@ -184,6 +181,13 @@ submit.addEventListener("click", function(){
     }
 });
 
+// function comprar(ProductsInfoArray){
+//         localStorage.setItem("productImage", ProductsInfoArray.images[0]);
+//         localStorage.setItem("productName", ProductsInfoArray.name);
+//         localStorage.setItem("productCost", ProductsInfoArray.cost);
+//         localStorage.setItem("productCant", 1);
+//         localStorage.setItem("productSubTotal", ProductsInfoArray.cost);   
+// }
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
@@ -206,6 +210,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showProductsComents()
         }
     });
+
+    // document.getElementById("btnComprarUnico").addEventListener("click", function(){
+    //     comprar(ProductsInfoArray);
+    // });
 });
 
 
