@@ -11,9 +11,10 @@ function showCarrito(cart){
         carrito.querySelector('img').setAttribute('src', item.image);
         carrito.querySelectorAll('td')[1].textContent = item.name;
         carrito.querySelectorAll('td')[2].textContent = item.unitCost;
-        
-        carrito.querySelectorAll('td')[4].textContent = item.unitCost * cant;
-        
+        if(cant>0)
+            carrito.querySelectorAll('td')[4].textContent = item.unitCost * cant;
+        else
+            alert("Para que sub total sea correcto, la cantidad debe de ser mayor a 0")
     }
 }
 
