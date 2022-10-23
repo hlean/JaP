@@ -42,69 +42,109 @@
       </div>
     </div>
   </nav>
+
   <main>
-    <div class="container d-flex">
-
-      <div class="col-8">
-        <div class="pt-5">
-          <h4 class="text-title"><b>Carrito de compras</b></h4>
-        </div>
-        <table class="table table-sm text-center justify-content-between mt-4">
-          <thead>
-            <tr>
-              <th scope="col">Product</th>
-              <th scope="col">Name</th>
-              <th scope="col">Cost</th>
-              <th scope="col">Cant</th>
-              <th scope="col">Sub total</th>
-            </tr>
-          </thead>
-          <tbody class="text-center ">
-            <tr id="items-body">
-              <td><img src="" class="img-fluid img" style="width: 15rem;"></td>
-              <td></td>
-              <td></td>
-              <td>
-                <input class="text-center w-25" id="cantCarrito" type="number" value="1" min="1" pattern="^[0-9]+">
-              </td>
-              <td></td>
-            </tr>
-          </tbody>
-          <!-- <tbody class="text-center ">
-            <tr id="items-bodyStorage">
-              <td><img src="" class="img-fluid img" style="width: 15rem;"></td>
-              <td></td>
-              <td></td>
-              <td>
-                <input class="text-center w-25" type="number" id="cantCarrito" value="1"/>
-              </td>
-              <td></td>
-            </tr>
-          </tbody> -->
-        </table>
+    <div class="container"><!--INFORMACION DE CARRITO-->
+      <div class="pt-5">
+        <h3 class="text-title"><b>Carrito de compras</b></h3>
       </div>
+      <table class="table table-sm text-center justify-content-between mt-4">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Name</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Cant</th>
+            <th scope="col">Sub total</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr id="items-body">
+            <td><img src="" class="img-fluid img" style="width: 15rem;"></td>
+            <td class="pt-5"></td>
+            <td class="pt-5"></td>
+            <td class="pt-5">
+              <input class="text-center w-25" id="cantCarrito" type="number" value="1" min="1" pattern="^[0-9]+">
+            </td>
+            <td class="pt-5"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <div class="col-4 ms-5">
-        <div class="text-center pt-5">
-          <h4 class="text-title"><b>Informacion de envio</b></h4>
-        </div>
-        <article class="mt-4">
-          <h5>Tipo de envio</h5>
-          <p><input type="radio"> Premium 2 a 5 dias (15%)</p>
-          <p><input type="radio"> Express 5 a 8 dias (7%)</p>
-          <p><input type="radio"> Standar 12 a 15 dias (5%)</p>
+    <div class="container"><!--INFORMACION DE ENVIO-->
+      <div class="pt-5">
+        <h3 class="text-title"><b>Informacion de envio</b></h3>
+      </div>
+      <div class="d-flex mb-5  justify-content-center">
+        <article class="mt-4 me-5">
+          <h5 class="mb-3">Tipo de envio</h5>
+          <input type="radio" name="envio" id="select15"><label for="select15" class="ms-2 mb-3">Premium 2 a 5 dias
+            (15%)</label><br>
+          <input type="radio" name="envio" id="select7"><label for="select7" class="ms-2 mb-3">Express 5 a 8 dias
+            (7%)</label><br>
+          <input type="radio" name="envio" id="select5"><label for="select5" class="ms-2 mb-3">Standar 12 a 15 dias
+            (5%)</label>
         </article>
-        <article class="mt-4">
+
+        <article class="mt-4 ms-5">
           <h5>Direccion de envio</h5>
           <input type="text" placeholder="Calle" class="w-100 mb-2 p-1">
-          <input type="text" placeholder="Numero" class="w-100 mb-2 p-1">
+          <input type="number" placeholder="Numero" class="w-100 mb-2 p-1">
           <input type="text" placeholder="Esquina" class="w-100 p-1">
         </article>
       </div>
+    </div>
 
-      
+    <div class="container mt-5 d-flex"><!--INFORMACION SELEC PAGO-->      
+      <div class="list-group me-3 col-8">
+        <section class="list-group-item list-group-item" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="text-title"><b>Costos</b></h3>
+        </section>
+        <section class="list-group-item list-group-item" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Subtotal</h5>
+            <small></small>
+          </div>
+          <p class="mb-1">Costo unitario del producto por cantidad.</p>
+        </section>
+        <section class="list-group-item list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Costo de envio</h5>
+            <small></small>
+          </div>
+          <p class="mb-1">Segun el tipo de envio</p>
+        </section>
+        <section class="list-group-item list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Total ($)</h5>
+            <small></small>
+          </div>
+        </section>
+      </div>
+
+      <div class="list-group col-4">
+        <section class="list-group-item list-group-item" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="text-title"><b>Forma de pago</b></h3>
+        </section>
+        <section class="list-group-item list-group-item">
+          <div class="d-flex w-100">
+            <h5 class="text-title mt-1 me-3">Forma de pago:</h5>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Seleccione
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <input type="submit" class="btn btn-success mt-5 " value="Finalizar compra">
     </div>
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -115,6 +155,45 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <section id="formCredito">
+            <input type="radio" name="formPago" id="selectTarj"><label for="selectTarj" class="me-2">Tarjeta de
+              credito</label>
+            <hr>
+            <label for="nroTarjeta" class="me-2 mb-4">Numero de tarjeta:</label><input type="number" id="nroTarjeta">
+            <label for="nroSeguridad" class="me-2 mb-4">Codigo de seguridad:</label><input type="number"
+              id="nroSeguridad">
+            <label for="fechaVenc" class="me-2 mb-4">Vencimiento(MM/AA):</label><input type="date" id="fechaVenc">
+          </section>
+
+          <section id="formBancaria" class="mt-3">
+            <input type="radio" name="formPago" id="selectBanc"><label for="selectBanc" class="me-2">Transferencia
+              bancaria</label>
+            <hr>
+            <label for="nroCuenta" class="me-2">Numero de cuenta:</label><input type="number" id="nroCuenta">
+          </section>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

@@ -13,28 +13,42 @@
 </head>
 
 <body>
-  <div class="form-signin">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    <form method="post" id="form">
-      <div class="form-floating">
-        <input type="email" class="form-control" id="email" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="password" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
+  <div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        <img src="img/vectorstock_25593613.png" id="vector" alt="">
+        <form class="login" id="form">
+          <div class="login__field">
+            <i class="login__icon fas fa-user"></i>
+            <input type="email" class="login__input" id="email" placeholder="Email">
+          </div>
+          <span id="warningEmail">&nbsp</span>
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input type="password" class="login__input" id="password" placeholder="Password">
+          </div>
+          <span id="warningPass">&nbsp</span>
 
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"><span>Remember me</span>
-        </label>
+          <button class="button login__submit">
+            <span class="button__text">Log In Now</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>				
+        </form>
+        <div class="social-login">
+          <h3 class="mt-4">or log in with</h3>
+          <div class="social-icons">
+            <a href="#" class="social-login__icon fab fa-facebook"><img src="img/google.png" alt=""></a>
+          </div>
+        </div>
       </div>
-      <p id="warning">&nbsp</p>
-      <button class="w-100 btn btn-lg btn-primary" id="btn_singin" type="submit">Sign in</button>
-    </form>
+      <div class="screen__background">
+        <span class="screen__background__shape screen__background__shape4"></span>
+        <span class="screen__background__shape screen__background__shape3"></span>		
+        <span class="screen__background__shape screen__background__shape2"></span>
+        <span class="screen__background__shape screen__background__shape1"></span>
+      </div>		
+    </div>
   </div>
-
 
   <script src="js/login.js"></script>
 </body>

@@ -48,6 +48,7 @@ function setProductID(id) {
 
 function showProductsList() {
     let currentProductsArray = ProductsArrayAndCatName.products;
+    let item = document.getElementById('itemSearch').value;
 
     title = `<h1>${ProductsArrayAndCatName.catName}</h1>
              <p>Aqui podras ver todos los productos de la categoria <strong>${ProductsArrayAndCatName.catName.toLowerCase()}</strong></p>`
@@ -56,8 +57,13 @@ function showProductsList() {
     for (let i = 0; i < currentProductsArray.length; i++) {
         let product = currentProductsArray[i];
 
+        
+        let name = product.name.toLowerCase();
+        let description = product.description.toLowerCase();
+        let search = item.toLowerCase();
+
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
-            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
+            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice)) && (name.includes(search) ||description.includes(search))){
 
         htmlContentToAppend += `
         <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active">
@@ -98,6 +104,9 @@ function sortAndShowProducts(sortCriteria, productsArray){
 }
 
 
+
+
+
 /*Función que se ejecuta una vez que se haya lanzado el evento de
 que el documento se encuentra cargado, es decir, se encuentran todos los elementos HTML presentes.*/
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -121,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         sortAndShowProducts(ORDER_ASC_BY_PRICE);
     });
 
-
     document.getElementById("sortDescProduct").addEventListener("click", function(){
         sortAndShowProducts(ORDER_DESC_BY_PRICE);
     });
@@ -129,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("sortByPrice").addEventListener("click", function(){
         sortAndShowProducts(ORDER_BY_PROD_REL);
     });
-
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterPriceMin").value = "";
@@ -161,6 +168,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             maxPrice = undefined;
         }
 
+        showProductsList();
+    });
+    document.querySelector('#itemSearch').addEventListener("input", function(){
         showProductsList();
     });
 });

@@ -4,17 +4,17 @@ const carrito = document.getElementById('items-body');
 
 function showCarrito(cart){
     let cant = document.getElementById('cantCarrito').value;
-
     for (let i = 0; i < cart.articles.length; i++) {
         let item = cart.articles[i];
  
         carrito.querySelector('img').setAttribute('src', item.image);
         carrito.querySelectorAll('td')[1].textContent = item.name;
-        carrito.querySelectorAll('td')[2].textContent = item.unitCost;
+        carrito.querySelectorAll('td')[2].textContent = item.currency +" "+ item.unitCost;
         if(cant>0)
-            carrito.querySelectorAll('td')[4].textContent = item.unitCost * cant;
+            carrito.querySelectorAll('td')[4].textContent = item.currency +" "+ item.unitCost * cant;
         else
             alert("Para que sub total sea correcto, la cantidad debe de ser mayor a 0")
+
     }
 }
 

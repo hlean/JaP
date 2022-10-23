@@ -4,17 +4,21 @@ document.querySelector("#form").addEventListener('submit', function(viajeDatos){
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    let message = "";
+
+    document.querySelector("#warningEmail").innerHTML="";
+    document.querySelector("#warningPass").innerHTML = "";
 
     if (email == "") {
-        message = "Email cannot be empty";
+        document.querySelector("#warningEmail").innerHTML = "Email cannot be empty";
+        document.querySelector("#warningPass").innerHTML = "&nbsp";
     }
     else if (password == "") {
-        message = "Password cannot be empty";
+        document.querySelector("#warningPass").innerHTML = "Password cannot be empty";
+        document.querySelector("#warningEmail").innerHTML = "&nbsp";
     }
     else {
         window.location.href = "principal.html";
         localStorage.setItem("userEmail", email);
     }
-    document.querySelector("#warning").innerHTML = message;
+    
 })
