@@ -1,5 +1,6 @@
 let ProductsInfoArray = [];
 let ProductsComentsArray = [];
+let storageCart = [];
 
 /*#################### FUNCIONES DE USO GENERAL #####################*/
 function createDateTime(){
@@ -186,13 +187,31 @@ submit.addEventListener("click", function(){
     }
 });
 
-// function comprar(ProductsInfoArray){
-//         localStorage.setItem("productImage", ProductsInfoArray.images[0]);
-//         localStorage.setItem("productName", ProductsInfoArray.name);
-//         localStorage.setItem("productCost", ProductsInfoArray.cost);
-//         localStorage.setItem("productCant", 1);
-//         localStorage.setItem("productSubTotal", ProductsInfoArray.cost);   
-// }
+function comprar(ProductsInfoArray){
+    let myObject = new Object();
+
+    localStorage.setItem("productImage", ProductsInfoArray.images[0]);
+    localStorage.setItem("productName", ProductsInfoArray.name);
+    localStorage.setItem("productCost", ProductsInfoArray.cost);
+    localStorage.setItem("productCurrency", ProductsInfoArray.currency);
+    localStorage.setItem("productCant", 1);
+
+    myObject.image = localStorage.getItem("productImage");
+    myObject.nameP = localStorage.getItem("productName");
+    myObject.cost = localStorage.getItem("productCost");
+    myObject.cant = localStorage.getItem("productCant");
+    myObject.currency = localStorage.getItem("productCurrency");
+
+    let storageCart = localStorage.getItem("arr");
+    storageCart = JSON.parse(storageCart);
+    
+    if (storageCart == null)
+    storageCart = []
+
+    storageCart.push(myObject);
+    localStorage.setItem("arr", JSON.stringify(storageCart));
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -217,9 +236,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 
-    // document.getElementById("btnComprarUnico").addEventListener("click", function(){
-    //     comprar(ProductsInfoArray);
-    // });
+    document.getElementById("btnComprarUnico").addEventListener("click", function(){
+        comprar(ProductsInfoArray);
+    });
 });
 
 

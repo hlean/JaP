@@ -188,7 +188,7 @@ a.custom-card:hover {
   color: orange;
 }
 
-#cantCarrito{
+#cantCarrito, #cantCarritoStorage{
   border: none;
 }
 
