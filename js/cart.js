@@ -21,6 +21,7 @@ const showTrigger = document.getElementById("liveAlertBtn");
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
+<<<<<<< Updated upstream
     "use strict";
 
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -57,6 +58,42 @@ const showTrigger = document.getElementById("liveAlertBtn");
             false
         );
     });
+=======
+  "use strict";
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener("submit",function (event) {
+        for (const radioButtonPago of radioButtonsPago) { /*Deseleccionar la opcion que elegio de envio si aumenta/disminuye la cantidad de productos*/
+ 
+            if (radioButtonPago.checked && (nroCuentaInput.value!="") || (nroTarjetaInput.value !="" && nroSeguritaInput.value !="" && vencInput.value !="")) {
+                formaPago.classList.remove("text-danger");
+                txtError.innerHTML = "";
+            }
+             
+            else {
+                formaPago.classList.add("text-danger");
+                txtError.innerHTML = "Please select a payment method and complete the information";
+            }
+        }
+
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+        showTrigger.onclick = function(){
+            successAlert.style.display = "block";
+            successAlert.classList.remove("visually-hidden")
+        }  
+    },
+      false
+    );
+  });
+>>>>>>> Stashed changes
 })();
 
 

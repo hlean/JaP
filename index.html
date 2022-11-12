@@ -17,17 +17,17 @@
     <div class="screen">
       <div class="screen__content">
         <img src="img/vectorstock_25593613.png" id="vector" alt="">
-        <form class="login" id="form">
+        <form class="login needs-validation" id="form"  novalidate>
           <div class="login__field">
             <i class="login__icon fas fa-user"></i>
-            <input type="email" class="login__input" id="email" placeholder="Email">
+            <input type="email" class="login__input form-control" id="email" placeholder="Email" required>
+            <div class="invalid-tooltip">Please provide an email address.</div>
           </div>
-          <span id="warningEmail">&nbsp</span>
           <div class="login__field">
             <i class="login__icon fas fa-lock"></i>
-            <input type="password" class="login__input" id="password" placeholder="Password">
+            <input type="password" class="login__input form-control" id="password" placeholder="Password" required>
+            <div class="invalid-tooltip">Please provide a valid password.</div>
           </div>
-          <span id="warningPass">&nbsp</span>
 
           <button class="button login__submit">
             <span class="button__text">Log In Now</span>
@@ -35,7 +35,7 @@
           </button>				
         </form>
         <div class="social-login">
-          <h3 class="mt-4">or log in with</h3>
+          <h4 class="mt-4">or log in with</h4>
           <div class="social-icons">
             <a href="#" class="social-login__icon fab fa-facebook"><img src="img/google.png" alt=""></a>
           </div>
