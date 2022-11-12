@@ -193,3 +193,15 @@ a.custom-card:hover {
 }
 
 #showEmail{padding: 0; margin: 0;}
+
+#imgPhoto{
+  height: 100px;
+  width: 100px;
+}
+
+#display-image{
+  width: 150px;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+}

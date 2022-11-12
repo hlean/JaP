@@ -58,11 +58,45 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div>
+      <figure class="d-flex justify-content-center mb-4">
+        <img src="img/icon.jpg" id="display-image" class="mt-5 ms-5">
+      </figure>
     </div>
+    <form class="needs-validation" novalidate>
+      <div class="d-flex justify-content-center">
+        <section class="ms-5 col-3">
+          <label for="inpNombreUno" class="form-label">First name (*)</label><br>
+          <input type="text" id="inpNombreUno" class="form-control" required>
+          <div class="invalid-feedback">Please provide a valid firtst name.</div><br>
+  
+          <label for="inpNombreDos" class="form-label">Last name</label><br>
+          <input type="text" id="inpNombreDos" class="form-control"><br>
+  
+          <label for="inpEmail" class="form-label">Email (*)</label><br>
+          <input type="text" id="inpEmail" class="form-control" disabled><br>
+        </section>
+        <section class="ms-5 col col-3">
+          <label for="inpApellidoUno" class="form-label">First surname (*)</label><br>
+          <input type="text" id="inpApellidoUno" class="form-control" required>
+          <div class="invalid-feedback">Please provide a valid last name.</div><br>
+  
+          <label for="inpApellidoDos" class="form-label">Last surname</label><br>
+          <input type="text" id="inpApellidoDos" class="form-control"><br>
+  
+          <label for="inpTel" class="form-label">Cell phone number</label><br>
+          <input type="text" id="inpTel" class="form-control"><br>
+
+          <label for="image-input" class="form-label">Photo</label><br>
+          <input type="file" class="form-control" id="image-input" accept="image/jpeg, image/png, image/jpg">
+        </section>
+      </div>
+        <div class="col-12 text-center mt-5">
+          <button class="btn btn-primary w-50" type="submit" id="saveDates">Guardar datos</button>
+        </div>
+
+    </form>
+    
   </main>
   <footer class="text-muted">
     <div class="container">

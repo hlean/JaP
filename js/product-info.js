@@ -8,6 +8,8 @@ function createDateTime(){
                 + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
     return datetime;
 }
+
+//Funcion que transforma la candidad de estrellas acorde al numero de estrellas indicado por el usuario en el select de comentarios. 
 function creatStars(coments){
     if(coments == 5){
         htmlContentToAppend = `                                
@@ -66,7 +68,7 @@ function setProductID(id) {
 
 /*####################################################################*/
 
-
+//Funcion que lista la informacion del producto al cual entramos.
 function showProductsInfoList() {
     let img = "";
     let products = "";
@@ -115,6 +117,7 @@ function showProductsInfoList() {
     }
 
 }
+//Funcion que lista los comentarios de la api.
 function showProductsComents(){
 
     let htmlContentToAppend = "";
@@ -144,6 +147,8 @@ function showProductsComents(){
         document.getElementById("coments-list-container").innerHTML = htmlContentToAppend;
     }
 }
+
+//Funcion que crea y lista el comentario ingresado por el usuario en el momento que lo hace.
 const submit = document.getElementById("btn_addComent");
 submit.addEventListener("click", function(){
     let txtArea = document.getElementById("txtArea").value;
@@ -188,6 +193,7 @@ submit.addEventListener("click", function(){
 //         localStorage.setItem("productCant", 1);
 //         localStorage.setItem("productSubTotal", ProductsInfoArray.cost);   
 // }
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
 

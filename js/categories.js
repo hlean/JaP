@@ -6,6 +6,7 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
+//Funcion que establece los criterios de ordenamiento.
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
@@ -40,6 +41,7 @@ function setCatID(id) {
     window.location = "products.html"
 }
 
+//Funcion que muestra las categorias dependiendo el criterio de ordenamiento.
 function showCategoriesList(){
 
     let htmlContentToAppend = "";

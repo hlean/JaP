@@ -8,6 +8,7 @@ let currentSortCriteriaProduct = undefined;
 let minPrice = undefined;
 let maxPrice = undefined;
 
+//Funcion que establece los criterios de ordenamiento.
 function sortProducts(criteria, array){
     let result = [];
      if (criteria === ORDER_ASC_BY_PRICE){ /*Ordena de manera ascendente de acuerdo al precio*/
@@ -28,7 +29,7 @@ function sortProducts(criteria, array){
             if ( aPrice < bPrice ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_REL){ /*Ordena de manera descendente de acuerdo a cantidad vendidos*/
+    }else if (criteria === ORDER_BY_PROD_REL){ /*Ordena de manera descendente de acuerdo a la relevancia*/
         result = array.sort(function(a, b) {
             let aPrice = parseInt(a.soldCount);
             let bPrice = parseInt(b.soldCount);
@@ -46,6 +47,7 @@ function setProductID(id) {
     window.location = "product-info.html"
 }
 
+//Funcion que muestra los poductos dependiendo el criterio de ordenamiento o si fue buscado en el buscados de productos.
 function showProductsList() {
     let currentProductsArray = ProductsArrayAndCatName.products;
     let item = document.getElementById('itemSearch').value;
@@ -102,8 +104,6 @@ function sortAndShowProducts(sortCriteria, productsArray){
     //Muestro los productos ordenados
     showProductsList();
 }
-
-
 
 
 
