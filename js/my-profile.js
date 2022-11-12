@@ -18,19 +18,10 @@
         }, false)
       })
   })()
-
-const image_input = document.querySelector("#image-input");
-image_input.addEventListener("change", function() {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => {
-    const uploaded_image = reader.result;
-    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
-  });
-  reader.readAsDataURL(this.files[0]);
-});
   
-const saveDates = document.getElementById('saveDates');
 
+
+const saveDates = document.getElementById('saveDates');
 saveDates.addEventListener('click', () =>{
     let nombUno = document.getElementById('inpNombreUno').value;
     let nombDos = document.getElementById('inpNombreDos').value;
@@ -38,19 +29,12 @@ saveDates.addEventListener('click', () =>{
     let apellDos = document.getElementById('inpApellidoDos').value;
     let tel = document.getElementById('inpTel').value;
 
-
     localStorage.setItem("nombUno", nombUno);
     localStorage.setItem("nombDos", nombDos);
     localStorage.setItem("apellUno", apellUno);
     localStorage.setItem("apellDos", apellDos);
     localStorage.setItem("tel", tel);
-    localStorage.setItem("photo", image_input.value);
-
-    let photo = localStorage.getItem("photo");
-
-    document.getElementById('display-image').setAttribute('src', photo);
-
-
+    
 })
 
 
@@ -73,6 +57,5 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('inpApellidoUno').value = apellUno;
     document.getElementById('inpApellidoDos').value = apellDos;
     document.getElementById('inpTel').value = tel;
-
 })
 

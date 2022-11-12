@@ -1,52 +1,23 @@
-(function () {
-    'use strict'
-  
-    var forms = document.querySelectorAll('.needs-validation')
+document.querySelector("#form").addEventListener('submit', function (viajeDatos) {
 
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-        let email = document.getElementById("email").value;
+  viajeDatos.preventDefault();
 
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-            console.log("no se mando")
-          }
-          else{
-            window.location = "products.html"
-            localStorage.setItem("userEmail", email);
-          }
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-// document.querySelector("#form").addEventListener('submit', function(viajeDatos){
 
-//     viajeDatos.preventDefault();
 
-//     const email = document.getElementById("email").value;
-//     const password = document.getElementById("password").value;
+  if (email == "") {
+    document.querySelector("#warningEmail").innerHTML = "Please provide an email address.";
+    document.querySelector("#warningPass").innerHTML = "";
+  }
+  else if (password == "" || password.length < 6) {
+    document.querySelector("#warningPass").innerHTML = "Please provide a valid password.";
+    document.querySelector("#warningEmail").innerHTML = "";
+  }
+  else {
+    window.location.href = "principal.html";
+    localStorage.setItem("userEmail", email);
+  }
 
-//     let wE = document.querySelector("#warningEmail").innerHTML="";
-//     let wP = document.querySelector("#warningPass").innerHTML = "";
-
-//     if (email == "") {
-//         document.querySelector("#warningEmail").innerHTML = "Email cannot be empty";
-//         document.querySelector("#warningPass").innerHTML = "";
-//         wE.classList.remove("text-danger");
-
-//     }
-//     else if (password == "") {
-//         document.querySelector("#warningPass").innerHTML = "Password cannot be empty";
-//         document.querySelector("#warningEmail").innerHTML = "";
-//         wP.classList.remove("text-danger");
-
-//     }
-//     else {
-//         window.location.href = "principal.html";
-//         localStorage.setItem("userEmail", email);
-//     }
-    
-// })
+})

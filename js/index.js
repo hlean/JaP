@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     let email = localStorage.getItem("userEmail");
     if(email == null){
-        window.location = "index.html"
+        window.location = "principal.html"
     }
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);

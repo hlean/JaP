@@ -21,12 +21,12 @@
           <div class="login__field">
             <i class="login__icon fas fa-user"></i>
             <input type="email" class="login__input form-control" id="email" placeholder="Email" required>
-            <div class="invalid-tooltip">Please provide an email address.</div>
+            <small id="warningEmail" class="text-danger"></small>
           </div>
           <div class="login__field">
             <i class="login__icon fas fa-lock"></i>
             <input type="password" class="login__input form-control" id="password" placeholder="Password" required>
-            <div class="invalid-tooltip">Please provide a valid password.</div>
+            <small id="warningPass" class="text-danger"></small>
           </div>
 
           <button class="button login__submit">

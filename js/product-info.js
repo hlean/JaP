@@ -9,7 +9,6 @@ function createDateTime(){
                 + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
     return datetime;
 }
-
 //Funcion que transforma la candidad de estrellas acorde al numero de estrellas indicado por el usuario en el select de comentarios. 
 function creatStars(coments){
     if(coments == 5){
@@ -148,7 +147,6 @@ function showProductsComents(){
         document.getElementById("coments-list-container").innerHTML = htmlContentToAppend;
     }
 }
-
 //Funcion que crea y lista el comentario ingresado por el usuario en el momento que lo hace.
 const submit = document.getElementById("btn_addComent");
 submit.addEventListener("click", function(){

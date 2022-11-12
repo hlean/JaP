@@ -50,7 +50,7 @@ function setProductID(id) {
 //Funcion que muestra los poductos dependiendo el criterio de ordenamiento o si fue buscado en el buscados de productos.
 function showProductsList() {
     let currentProductsArray = ProductsArrayAndCatName.products;
-    let item = document.getElementById('itemSearch').value;
+    let itemSearch = document.getElementById('itemSearch').value.toLowerCase();
 
     title = `<h1>${ProductsArrayAndCatName.catName}</h1>
              <p>Aqui podras ver todos los productos de la categoria <strong>${ProductsArrayAndCatName.catName.toLowerCase()}</strong></p>`
@@ -62,10 +62,9 @@ function showProductsList() {
         
         let name = product.name.toLowerCase();
         let description = product.description.toLowerCase();
-        let search = item.toLowerCase();
 
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
-            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice)) && (name.includes(search) ||description.includes(search))){
+            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice)) && (name.includes(itemSearch) ||description.includes(itemSearch))){
 
         htmlContentToAppend += `
         <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active">
