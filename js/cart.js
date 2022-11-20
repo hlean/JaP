@@ -1,7 +1,7 @@
-let ArrayCart = [];
-let storageArray = [];
+
 const carrito = document.getElementById('items-body');
 const carritoStorage = document.getElementById('items-bodyStorage');
+const bodyStorage = document.getElementById('bodyStorage');
 
 const infoCost = document.getElementById('infoCost');
 const radioButtons = document.querySelectorAll('input[name="envio"]');
@@ -18,6 +18,7 @@ var txtError = document.getElementById("errorCheck");
 const successAlert = document.getElementById("myAlert");
 const showTrigger = document.getElementById("liveAlertBtn");
 
+let fragment = new DocumentFragment();
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
@@ -137,6 +138,42 @@ function showCarritoStorage() {
     return subtotal;
 }
 
+// function showCarritoStorage() {
+//     let cant = document.getElementById('cantCarritoStorage');
+
+//     let arr = localStorage.getItem("arr");
+//     var arrObjects = JSON.parse(arr);
+
+//     let subtotal = 0
+//     if (arrObjects == null) {
+//         carritoStorage.innerHTML = "";
+//         cant = 0;
+//     }
+//     else {
+//         bodyStorage.innerHTML = "";
+//         Object.values(arrObjects).forEach(item =>{
+//                 carritoStorage.querySelector('img').setAttribute('src', item.image);
+//                 carritoStorage.querySelectorAll('td')[1].textContent = item.nameP;
+//                 carritoStorage.querySelectorAll('td')[2].textContent = item.currency + " " + item.cost;        
+                
+//             const clone = carritoStorage.cloneNode(true);
+//             fragment.appendChild(clone);    
+//             if (cant.value > 0) {
+//                 carritoStorage.querySelectorAll('td')[4].textContent = item.currency + " " + item.cost * cant.value;
+//                 subtotal = item.cost * cant.value;
+//             }
+//             else {
+//                 alert("Para que sub total sea correcto, la cantidad debe de ser mayor a 0")
+//             }
+//         })
+//         bodyStorage.appendChild(fragment);
+//     }
+//     for (const radioButton of radioButtons) { /*Deseleccionar la opcion que elegio de envio si aumenta/disminuye la cantidad de productos*/
+//         radioButton.checked = false;
+//     }
+
+//     return subtotal;
+// }
 
 
 function showCost() {
@@ -187,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showCost();
     });
     document.querySelector('#cantCarritoStorage').addEventListener("input", function () {
-        showCarritoStorage(ArrayCart);
+        showCarritoStorage();
         showCost();
     });
 })
