@@ -49,8 +49,8 @@
         A simple primary alert—check it out!
       </div>
       <!--INFORMACION DE CARRITO-->
-      <div class="pt-5">
-        <h3 class="text-title"><b>Carrito de compras</b></h3>
+      <div class="pt-5 pb-3">
+        <h3 class="text-title text-center"><b>Cart</b></h3>
       </div>
       <table class="table table-sm text-center mt-4">
         <thead>
@@ -162,16 +162,16 @@
               </small>
             </section>
           </div>
-          <p class="mb-1">Costo unitario del producto por cantidad.</p>
+          <p class="mb-1">Unit cost of the product by quantity.</p>
         </section>
         <section class="list-group-item list-group-item">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Costo de envio</h5>
+            <h5 class="mb-1">Shipping cost</h5>
             <section>
               <small>USD </small><small id="costTrip"></small>
             </section>
           </div>
-          <p class="mb-1">Segun el tipo de envio</p>
+          <p class="mb-1">According to the type of shipment.</p>
         </section>
         <section class="list-group-item list-group-item">
           <div class="d-flex w-100 justify-content-between">
@@ -186,14 +186,14 @@
       <div class="list-group col-4">
         <section class="list-group-item list-group-item" aria-current="true">
           <div class="d-flex w-100 justify-content-between">
-            <h3 class="text-title"><b>Forma de pago</b></h3>
+            <h3 class="text-title"><b>Method of payment</b></h3>
         </section>
         <section class="list-group-item list-group-item">
           <div class="d-flex w-100">
-            <h5 class="text-title mt-1 me-3">Forma de pago:</h5>
+            <h5 class="text-title mt-1 me-3">Method of payment:</h5>
             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" required
               data-bs-target="#staticBackdrop">
-              Seleccione
+              Select
             </button><br>
           </div>
           <small id="errorCheck" class="text-danger">&nbsp</small>
@@ -204,7 +204,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Method of payment</h5>
                 <button id="selectPago" type="button" class="btn-close" data-bs-dismiss="modal"
                   aria-label="Close"></button>
               </div>
@@ -212,22 +212,22 @@
 
                 <section id="formCredito">
                   <input type="radio" name="formPago" id="selectTarj">
-                  <label for="selectTarj" class="me-2">Tarjeta decredito</label>
+                  <label for="selectTarj" class="me-2">Credit card</label>
                   <hr>
-                  <label for="nroTarjeta" class="me-2">Numero de tarjeta:</label>
+                  <label for="nroTarjeta" class="me-2">Number card:</label>
                   <input type="number" id="nroTarjeta" class="form-control mb-3" required>
-                  <label for="nroSeguridad" class="me-2">Codigo de seguridad:</label>
+                  <label for="nroSeguridad" class="me-2">Security code:</label>
                   <input type="number" id="nroSeguridad" class="form-control mb-3" required>
-                  <label for="fechaVenc" class="me-2">Vencimiento(MM/AA):</label>
+                  <label for="fechaVenc" class="me-2">Expiration(MM/AA):</label>
                   <input type="date" id="fechaVenc" class="form-control " required>
                 </section>
 
 
                 <section id="formBancaria" class="mt-5">
                   <input type="radio" name="formPago" id="selectBanc">
-                  <label for="selectBanc" class="me-2">Transferencia bancaria</label>
+                  <label for="selectBanc" class="me-2">Bank transfer:</label>
                   <hr>
-                  <label for="nroCuenta" class="me-2">Numero de cuenta:</label>
+                  <label for="nroCuenta" class="me-2">Account number:</label>
                   <input type="number" id="nroCuenta" class="form-control" required>
                 </section>
 
@@ -244,7 +244,7 @@
     </div>
 
     <div class="col-12 text-center mt-5">
-      <button class="btn btn-primary w-50" type="submit" id="liveAlertBtn">Finalizar compra</button>
+      <button class="btn btn-primary w-50" type="submit" id="liveAlertBtn">Checkout</button>
     </div>
 
     </form>
@@ -253,12 +253,10 @@
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
-        <a href="#">Volver arriba</a>
+        <a href="#"><img src="img/arrow_up.png" id="arrow_up"></a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
-          Programar</a> -
-        2022</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      <p>This site was created by <b>Leandro Herrera</b></p>
+      <p>Click <a target="_blank" href="https://github.com/Hlean">here</a> to go to my github.</p>
     </div>
   </footer>
 

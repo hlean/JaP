@@ -53,7 +53,7 @@ function showProductsList() {
     let itemSearch = document.getElementById('itemSearch').value.toLowerCase();
 
     title = `<h1>${ProductsArrayAndCatName.catName}</h1>
-             <p>Aqui podras ver todos los productos de la categoria <strong>${ProductsArrayAndCatName.catName.toLowerCase()}</strong></p>`
+             <p>Here you can see all the products of the category <strong>${ProductsArrayAndCatName.catName.toLowerCase()}</strong></p>`
 
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
