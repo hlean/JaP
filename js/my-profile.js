@@ -22,12 +22,13 @@
 
 
 const saveDates = document.getElementById('saveDates');
+let nombUno = document.getElementById('inpNombreUno').value;
+let nombDos = document.getElementById('inpNombreDos').value;
+let apellUno = document.getElementById('inpApellidoUno').value;
+let apellDos = document.getElementById('inpApellidoDos').value;
+let tel = document.getElementById('inpTel').value;
+
 saveDates.addEventListener('click', () =>{
-    let nombUno = document.getElementById('inpNombreUno').value;
-    let nombDos = document.getElementById('inpNombreDos').value;
-    let apellUno = document.getElementById('inpApellidoUno').value;
-    let apellDos = document.getElementById('inpApellidoDos').value;
-    let tel = document.getElementById('inpTel').value;
 
     localStorage.setItem("nombUno", nombUno);
     localStorage.setItem("nombDos", nombDos);
