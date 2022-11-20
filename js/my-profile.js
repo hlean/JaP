@@ -37,6 +37,14 @@ saveDates.addEventListener('click', () =>{
     
 })
 
+document.querySelector("#image-input").addEventListener("change", function () {
+  const reader = new FileReader();
+
+  reader.addEventListener("load",()=>{
+    localStorage.setItem("image", reader.result);
+  })
+  reader.readAsDataURL(this.files[0]);
+})
 
 document.addEventListener("DOMContentLoaded", function() {
     let email = localStorage.getItem("userEmail");
@@ -50,7 +58,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let apellUno = localStorage.getItem("apellUno");
     let apellDos = localStorage.getItem("apellDos");
     let tel = localStorage.getItem("tel");
+    let image = localStorage.getItem("image");
 
+    if(image){
+      document.querySelector("#display-image").setAttribute("src", image);
+    }
     //Establece el valor ingresado por el usuario y guardado en el localstorage en el input correspondiente.
     document.getElementById('inpNombreUno').value = nombUno;
     document.getElementById('inpNombreDos').value = nombDos;
