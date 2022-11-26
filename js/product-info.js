@@ -107,7 +107,7 @@ function showProductsInfoList() {
     
     for (let j=0; j<ProductsInfoArray.relatedProducts.length; j++){
         let item = ProductsInfoArray.relatedProducts[j]
-        products +=`<div onclick="setProductID(${item.id})" class="card cursor-active list-group-item list-group-item-action mb-2" style="width: 18rem;">
+        products +=`<div onclick="setProductID(${item.id})" class="card cursor-active list-group-item list-group-item-action mb-2 me-3" style="width: 18rem;">
                         <img class="card-img-top" src="${item.image}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">${item.name}</h5>

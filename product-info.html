@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <input type="submit" value="Comprar" id="btnComprarUnico" class="w-25 col-auto btn-primary">
+    <input type="submit" value="Comprar" id="btnComprarUnico" class="w-25 col-auto btn-success p-1 mt-5 rounded">
     <hr>
     <div class="row pt-3">
       <h3 class="text-title text-center mb-3">Comments</h3>
@@ -80,10 +80,10 @@
 
       <div class="row text-center justify-content-center">
         <label required for="txtArea">Insert your opinion:</label>
-        <textarea class="mb-3 w-50" id="txtArea"></textarea>
+        <textarea class="mb-3 w-50 form-control" id="txtArea"></textarea>
 
         <label for="score">Select a score:</label>
-        <select id="score" class="mb-3 w-50">
+        <select id="score" class="mb-3 w-50 form-control">
           <option value="#" disabled selected>Score</option>
           <option value="0">0</option>
           <option value="1">1</option>
@@ -93,12 +93,12 @@
           <option value="5">5</option>
         </select>
         <p id="warning">&nbsp</p>
-        <input type="submit" value="Submit" id="btn_addComent" class="w-25 col-auto btn-primary">
+        <input type="submit" value="Submit" id="btn_addComent" class="w-25 col-auto btn-success rounded">
       </div>
     <hr>
     <div class="row pb-5">
       <h3 class="text-title text-center mt-3 mb-5">Related products</h3>
-      <div class="list-group align-items-center" id="products-related-container"></div>
+      <div class="justify-content-center d-flex" id="products-related-container"></div>
     </div>
   </main>
 

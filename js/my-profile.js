@@ -22,14 +22,15 @@
 
 
 const saveDates = document.getElementById('saveDates');
-let nombUno = document.getElementById('inpNombreUno').value;
-let nombDos = document.getElementById('inpNombreDos').value;
-let apellUno = document.getElementById('inpApellidoUno').value;
-let apellDos = document.getElementById('inpApellidoDos').value;
-let tel = document.getElementById('inpTel').value;
+
 
 saveDates.addEventListener('click', () =>{
-
+  let nombUno = document.getElementById('inpNombreUno').value;
+  let nombDos = document.getElementById('inpNombreDos').value;
+  let apellUno = document.getElementById('inpApellidoUno').value;
+  let apellDos = document.getElementById('inpApellidoDos').value;
+  let tel = document.getElementById('inpTel').value;
+  
     localStorage.setItem("nombUno", nombUno);
     localStorage.setItem("nombDos", nombDos);
     localStorage.setItem("apellUno", apellUno);
@@ -52,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if(email == null){
         window.location = "index.html"
     }
-    document.getElementById('inpEmail').value = email;
 
     let nombUno = localStorage.getItem("nombUno");
     let nombDos = localStorage.getItem("nombDos");
@@ -61,14 +61,17 @@ document.addEventListener("DOMContentLoaded", function() {
     let tel = localStorage.getItem("tel");
     let image = localStorage.getItem("image");
 
-    if(image){
-      document.querySelector("#display-image").setAttribute("src", image);
-    }
     //Establece el valor ingresado por el usuario y guardado en el localstorage en el input correspondiente.
     document.getElementById('inpNombreUno').value = nombUno;
     document.getElementById('inpNombreDos').value = nombDos;
     document.getElementById('inpApellidoUno').value = apellUno;
     document.getElementById('inpApellidoDos').value = apellDos;
     document.getElementById('inpTel').value = tel;
+    document.getElementById('inpEmail').value = email;
+
+    if(image){
+      document.querySelector("#display-image").setAttribute("src", image);
+    }
+
 })
 

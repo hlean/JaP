@@ -116,20 +116,23 @@ function showCarritoStorage() {
         cant = 0;
     }
     else {
-        for (let j = 0; j < arrObjects.length; j++) {
-            let item = arrObjects[j];
+        bodyStorage.innerHTML = "";
+        Object.values(arrObjects).forEach(item =>{
+                carritoStorage.querySelector('img').setAttribute('src', item.image);
+                carritoStorage.querySelectorAll('td')[1].textContent = item.nameP;
+                carritoStorage.querySelectorAll('td')[2].textContent = item.currency + " " + item.cost;        
 
-            carritoStorage.querySelector('img').setAttribute('src', item.image);
-            carritoStorage.querySelectorAll('td')[1].textContent = item.nameP;
-            carritoStorage.querySelectorAll('td')[2].textContent = item.currency + " " + item.cost;
-            if (cant.value > 0) {
-                carritoStorage.querySelectorAll('td')[4].textContent = item.currency + " " + item.cost * cant.value;
-                subtotal = item.cost * cant.value;
+                if (cant.value > 0) {
+                carritoStorage.querySelectorAll('td')[4].textContent = item.currency + " " + item.cost;
+                subtotal += item.cost * cant.value;
             }
             else {
                 alert("Para que sub total sea correcto, la cantidad debe de ser mayor a 0")
             }
-        }
+            const clone = carritoStorage.cloneNode(true);
+            fragment.appendChild(clone);    
+        })
+        bodyStorage.appendChild(fragment);
     }
     for (const radioButton of radioButtons) { /*Deseleccionar la opcion que elegio de envio si aumenta/disminuye la cantidad de productos*/
         radioButton.checked = false;
@@ -138,50 +141,13 @@ function showCarritoStorage() {
     return subtotal;
 }
 
-// function showCarritoStorage() {
-//     let cant = document.getElementById('cantCarritoStorage');
-
-//     let arr = localStorage.getItem("arr");
-//     var arrObjects = JSON.parse(arr);
-
-//     let subtotal = 0
-//     if (arrObjects == null) {
-//         carritoStorage.innerHTML = "";
-//         cant = 0;
-//     }
-//     else {
-//         bodyStorage.innerHTML = "";
-//         Object.values(arrObjects).forEach(item =>{
-//                 carritoStorage.querySelector('img').setAttribute('src', item.image);
-//                 carritoStorage.querySelectorAll('td')[1].textContent = item.nameP;
-//                 carritoStorage.querySelectorAll('td')[2].textContent = item.currency + " " + item.cost;        
-                
-//             const clone = carritoStorage.cloneNode(true);
-//             fragment.appendChild(clone);    
-//             if (cant.value > 0) {
-//                 carritoStorage.querySelectorAll('td')[4].textContent = item.currency + " " + item.cost * cant.value;
-//                 subtotal = item.cost * cant.value;
-//             }
-//             else {
-//                 alert("Para que sub total sea correcto, la cantidad debe de ser mayor a 0")
-//             }
-//         })
-//         bodyStorage.appendChild(fragment);
-//     }
-//     for (const radioButton of radioButtons) { /*Deseleccionar la opcion que elegio de envio si aumenta/disminuye la cantidad de productos*/
-//         radioButton.checked = false;
-//     }
-
-//     return subtotal;
-// }
-
 
 function showCost() {
     let subTotal = infoCost.querySelector("#subtotalCost").textContent = showCarrito(ArrayCart) + showCarritoStorage();
     for (const radioButton of radioButtons) {
         radioButton.addEventListener('change', function (e) {
             if (this.checked) {
-                let envioCost = infoCost.querySelector("#costTrip").textContent = (subTotal / 100) * radioButton.value;
+                let envioCost = infoCost.querySelector("#costTrip").textContent = ((subTotal / 100) * radioButton.value).toFixed(2);
                 infoCost.querySelector("#totalCost").textContent = subTotal + envioCost;
             }
         });
@@ -189,13 +155,24 @@ function showCost() {
 }
 
 
-document.getElementById("btnDelete").addEventListener("click", function (e) {
-    localStorage.removeItem("arr")
-    showCost()
-    showCarritoStorage();
 
-})
-document.getElementById("btnDeleteJson").addEventListener("click", function (e) {
+// document.querySelectora("#btnDelete").addEventListener("click", function (e) {
+//     console.log("a")
+//     eliminarProducto();
+// })
+
+// const eliminarProducto = ()=>{
+//     let arr = localStorage.getItem("arr");
+//     var arrObjects = JSON.parse(arr);
+
+//     const foundId = arrObjects.find((element)=> element.nameP);
+//     arrObjects = arrObjects.filter((productId)=>{
+//         return productId !== foundId;
+//     })
+//     showCarritoStorage()
+// }
+
+document.querySelector(".btnDeleteJson").addEventListener("click", function (e) {
     showCost()
     showCarrito();
 })
@@ -227,6 +204,9 @@ document.addEventListener("DOMContentLoaded", function () {
         showCarritoStorage();
         showCost();
     });
+    // document.querySelectorAll(".btnDelete")[0].addEventListener("click", function (e) {
+    //     console.log("a")
+    // })
 })
 
 
