@@ -18,8 +18,6 @@ var txtError = document.getElementById("errorCheck");
 const successAlert = document.getElementById("myAlert");
 const showTrigger = document.getElementById("liveAlertBtn");
 
-let fragment = new DocumentFragment();
-
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     "use strict";
@@ -74,76 +72,49 @@ document.getElementById('selectTarj').addEventListener('click', function (e) {
 });
 
 
-function showCarrito(cart) {
-    let cant = document.getElementById('cantCarrito').value;
-    let subtotal = 0
-
-    if (cart == null) {
-        carrito.innerHTML = "";
-    }
-    else {
-        for (let i = 0; i < cart.articles.length; i++) {
-            let item = cart.articles[i];
-
-            carrito.querySelector('img').setAttribute('src', item.image);
-            carrito.querySelectorAll('td')[1].textContent = item.name;
-            carrito.querySelectorAll('td')[2].textContent = item.currency + " " + item.unitCost;
-            if (cant > 0) {
-                carrito.querySelectorAll('td')[4].textContent = item.currency + " " + item.unitCost * cant;
-                subtotal = item.unitCost * cant;
-            }
-            else {
-                console.log("Para que sub total sea correcto, la cantidad debe de ser mayor a 0")
-            }
-        }
-    }
-    for (const radioButton of radioButtons) { /*Deseleccionar la opcion que elegio de envio si aumenta/disminuye la cantidad de productos*/
-        radioButton.checked = false;
-    }
-
-    return subtotal;
-}
-
 function showCarritoStorage() {
-    let cant = document.getElementById('cantCarritoStorage');
+    let cant = 1;
 
     let arr = localStorage.getItem("arr");
     var arrObjects = JSON.parse(arr);
 
     let subtotal = 0
     if (arrObjects == null) {
-        carritoStorage.innerHTML = "";
+        bodyStorage.innerHTML = `<br><br><b>Usted no tiene productos en el carrito.<b>`;
         cant = 0;
     }
     else {
         bodyStorage.innerHTML = "";
         Object.values(arrObjects).forEach(item =>{
-                carritoStorage.querySelector('img').setAttribute('src', item.image);
-                carritoStorage.querySelectorAll('td')[1].textContent = item.nameP;
-                carritoStorage.querySelectorAll('td')[2].textContent = item.currency + " " + item.cost;        
-
-                if (cant.value > 0) {
-                carritoStorage.querySelectorAll('td')[4].textContent = item.currency + " " + item.cost;
-                subtotal += item.cost * cant.value;
-            }
-            else {
-                alert("Para que sub total sea correcto, la cantidad debe de ser mayor a 0")
-            }
-            const clone = carritoStorage.cloneNode(true);
-            fragment.appendChild(clone);    
-        })
-        bodyStorage.appendChild(fragment);
+            bodyStorage.innerHTML +=
+            `
+            <td><img src="${item.image}" class="img-fluid img" style="width: 15rem;"></td>
+            <td class="pt-5">${item.nameP}</td>
+            <td class="pt-5">${item.currency} ${item.cost}</td>
+            <td class="pt-5">
+              ${item.cantg}
+            </td>
+            <td class="pt-5">${item.currency} ${item.cost}</td>
+            <td class="pt-5">
+              <button type="button" onclick="eliminarProducto(${item.id})">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path></svg>
+                Delete
+              </button>
+            </td>
+            `
+            subtotal += item.cost * cant;
+            })
     }
     for (const radioButton of radioButtons) { /*Deseleccionar la opcion que elegio de envio si aumenta/disminuye la cantidad de productos*/
         radioButton.checked = false;
     }
-
     return subtotal;
 }
 
-
 function showCost() {
-    let subTotal = infoCost.querySelector("#subtotalCost").textContent = showCarrito(ArrayCart) + showCarritoStorage();
+    let subTotal = infoCost.querySelector("#subtotalCost").textContent = showCarritoStorage();
     for (const radioButton of radioButtons) {
         radioButton.addEventListener('change', function (e) {
             if (this.checked) {
@@ -152,30 +123,19 @@ function showCost() {
             }
         });
     }
+    
 }
 
+const eliminarProducto = (id)=>{
+    let arr = localStorage.getItem("arr");
+    var arrObjects = JSON.parse(arr);
 
-
-// document.querySelectora("#btnDelete").addEventListener("click", function (e) {
-//     console.log("a")
-//     eliminarProducto();
-// })
-
-// const eliminarProducto = ()=>{
-//     let arr = localStorage.getItem("arr");
-//     var arrObjects = JSON.parse(arr);
-
-//     const foundId = arrObjects.find((element)=> element.nameP);
-//     arrObjects = arrObjects.filter((productId)=>{
-//         return productId !== foundId;
-//     })
-//     showCarritoStorage()
-// }
-
-document.querySelector(".btnDeleteJson").addEventListener("click", function (e) {
-    showCost()
-    showCarrito();
-})
+    const foundId = arrObjects.find((element)=> element.id == id);
+    arrObjects = arrObjects.filter(foundId => foundId.id !=id);
+    localStorage.setItem("arr", JSON.stringify(arrObjects));
+    showCarritoStorage()
+    showCost();
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     let email = localStorage.getItem("userEmail");
@@ -190,23 +150,11 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(url).then(function (resultObj) {
         if (resultObj.status === "ok") {
             ArrayCart = resultObj.data;
-            showCarrito(ArrayCart);
             showCost();
             showCarritoStorage()
         }
     });
 
-    document.querySelector('#cantCarrito').addEventListener("input", function () {
-        showCarrito(ArrayCart);
-        showCost();
-    });
-    document.querySelector('#cantCarritoStorage').addEventListener("input", function () {
-        showCarritoStorage();
-        showCost();
-    });
-    // document.querySelectorAll(".btnDelete")[0].addEventListener("click", function (e) {
-    //     console.log("a")
-    // })
 })
 
 
