@@ -80,7 +80,7 @@ function showCarritoStorage() {
 
     let subtotal = 0
     if (arrObjects == null) {
-        bodyStorage.innerHTML = `<br><br><b>Usted no tiene productos en el carrito.<b>`;
+        bodyStorage.innerHTML = `<br><br><b><b>Usted no tiene productos en el carrito.<b>`;
         cant = 0;
     }
     else {
