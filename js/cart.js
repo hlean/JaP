@@ -92,7 +92,7 @@ function showCarritoStorage() {
             <td class="pt-5">${item.nameP}</td>
             <td class="pt-5">${item.currency} ${item.cost}</td>
             <td class="pt-5">
-              ${item.cantg}
+              ${item.cant}
             </td>
             <td class="pt-5">${item.currency} ${item.cost}</td>
             <td class="pt-5">
